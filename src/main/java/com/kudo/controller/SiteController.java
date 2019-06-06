@@ -33,7 +33,7 @@ public class SiteController {
 
     @PostMapping
     @ApiOperation(value = "新增网站配置")
-    public ResponseEntity addBook(@RequestBody SiteDTO siteDTO) {
+    public ResponseEntity addSite(@RequestBody SiteDTO siteDTO) {
         checkSiteDTO(siteDTO);
         Site site = siteService.addSite(siteTransformer.toEntity(siteDTO));
         return ResponseEntity.ok(siteTransformer.toDto(site));
@@ -41,7 +41,7 @@ public class SiteController {
 
     @PutMapping("/{site_id}")
     @ApiOperation(value = "根据id修改网站配置")
-    public ResponseEntity modifyBookInfo(@PathVariable String site_id, @RequestBody SiteDTO siteDTO) {
+    public ResponseEntity modifySiteInfo(@PathVariable String site_id, @RequestBody SiteDTO siteDTO) {
         Preconditions.checkNotNull(site_id);
         Site site = siteService.modifySite(site_id, siteTransformer.toEntity(siteDTO));
         return ResponseEntity.ok(siteTransformer.toDto(site));
