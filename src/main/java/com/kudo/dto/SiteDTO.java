@@ -1,11 +1,8 @@
-package com.kudo.entity;
+package com.kudo.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+public class SiteDTO {
 
-@Entity
-@Table(name = "site")
-public class Site extends BaseEntity {
+    private String id;
 
     private String tel;
 
@@ -15,14 +12,19 @@ public class Site extends BaseEntity {
 
     private String qrcode;
 
-    public Site() {
+    public SiteDTO() {
     }
 
-    public Site(String tel, String email, String address, String qrcode) {
+    public SiteDTO(String id, String tel, String email, String address, String qrcode) {
+        this.id = id;
         this.tel = tel;
         this.email = email;
         this.address = address;
         this.qrcode = qrcode;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getTel() {
@@ -39,12 +41,5 @@ public class Site extends BaseEntity {
 
     public String getQrcode() {
         return qrcode;
-    }
-
-    public void modify(Site newSite) {
-        this.tel = newSite.getTel();
-        this.email = newSite.getEmail();
-        this.address = newSite.getAddress();
-        this.qrcode = newSite.getQrcode();
     }
 }

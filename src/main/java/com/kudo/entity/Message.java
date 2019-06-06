@@ -34,4 +34,10 @@ public class Message extends BaseEntity {
     public String getContent() {
         return content;
     }
+
+    public void modify(Message newMessage) {
+        this.name = newMessage.getName();
+        this.phone = newMessage.getPhone();
+        this.content = newMessage.getContent();
+    }
 }
